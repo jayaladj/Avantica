@@ -1,0 +1,23 @@
+<table class="table table-striped">
+    <thead>
+        <th>Property Address</th>
+        <th>Year Built</th>
+        <th>List Price</th>
+        <th>Monthly Rent</th>
+        <th>Gross Yield</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dataItem of PropertyList" >
+            <td>{{dataItem.address}}</td>
+            <td>{{dataItem.yearBuilt}}</td>
+            <td>{{dataItem.listPrice | currency : 'USD' : true : '1.2-2'}}</td>
+            <td>{{dataItem.monthlyRent | currency : 'USD' : true : '1.2-2'}}</td>
+            <td>{{dataItem.grossYield | percent:'1.2-2'}}</td>
+            <td>
+                <button type="button" class="btn btn-primary mr-1" (click)="addClick(dataItem)">
+                    Add
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
